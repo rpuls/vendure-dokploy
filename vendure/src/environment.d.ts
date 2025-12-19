@@ -16,6 +16,7 @@ declare global {
             DB_PASSWORD: string;
             DB_SCHEMA: string;
             REDIS_PASSWORD: string;
+            REDIS_HOST: string;
         }
     }
 }

@@ -9,6 +9,7 @@ import { defaultEmailHandlers, EmailPlugin, FileBasedTemplateLoader } from '@ven
 import { AssetServerPlugin } from '@vendure/asset-server-plugin';
 import { DashboardPlugin } from '@vendure/dashboard/plugin';
 import { GraphiqlPlugin } from '@vendure/graphiql-plugin';
+import { BullMQJobQueuePlugin } from '@vendure/job-queue-plugin/package/bullmq';
 import 'dotenv/config';
 import path from 'path';
 
@@ -60,6 +61,14 @@ export const config: VendureConfig = {
     // need to be updated. See the "Migrations" section in README.md.
     customFields: {},
     plugins: [
+        BullMQJobQueuePlugin.init({
+            connection: {
+              port: 6379,
+              host: process.env.REDIS_HOST,
+              password: process.env.REDIS_PASSWORD,
+              maxRetriesPerRequest: null
+            },
+          }),
         GraphiqlPlugin.init(),
         AssetServerPlugin.init({
             route: 'assets',
@@ -70,7 +79,6 @@ export const config: VendureConfig = {
             assetUrlPrefix: IS_DEV ? undefined : 'https://www.my-shop.com/assets/',
         }),
         DefaultSchedulerPlugin.init(),
-        DefaultJobQueuePlugin.init({ useDatabaseForBuffer: true }),
         DefaultSearchPlugin.init({ bufferUpdates: false, indexStockStatus: true }),
         EmailPlugin.init({
             devMode: true,
