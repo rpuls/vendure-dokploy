@@ -60,3 +60,8 @@ jobs:
             ${{ secrets.DOCKERHUB_USERNAME }}/dokploy-vendure-demo:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/dokploy-vendure-demo:${{ steps.meta.outputs.SHORT_SHA }}
           cache-from: type=local,src=/tmp/.buildx-cache
+
+      # 10. Trigger Dokploy deployment webhook
+      - name: Trigger Dokploy deployment
+        run: |
+          curl -X POST "${{ secrets.DOKPLOY_DEPLOY_WEBHOOK }}"

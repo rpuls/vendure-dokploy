@@ -1,6 +1,5 @@
 import {
     dummyPaymentHandler,
-    DefaultJobQueuePlugin,
     DefaultSchedulerPlugin,
     DefaultSearchPlugin,
     VendureConfig,
@@ -87,7 +86,7 @@ export const config: VendureConfig = {
             handlers: defaultEmailHandlers,
             templateLoader: new FileBasedTemplateLoader(path.join(__dirname, '../static/email/templates')),
             globalTemplateVars: {
-                // The following variables will change depending on your storefront implementation.
+                // The following variables will change depending on your storefront implehmentation.
                 // Here we are assuming a storefront running at http://localhost:8080.
                 fromAddress: '"example" <noreply@example.com>',
                 verifyEmailAddressUrl: 'http://localhost:8080/verify',
@@ -97,7 +96,7 @@ export const config: VendureConfig = {
         }),
         DashboardPlugin.init({
             route: 'dashboard',
-            appDir: path.join(__dirname, '../dist/dashboard')
+            appDir: path.join(__dirname, '../dist/dashboard'),
         }),
     ],
 };

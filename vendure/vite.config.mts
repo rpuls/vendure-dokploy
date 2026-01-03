@@ -15,8 +15,8 @@ export default defineConfig({
             // to introspect the GraphQL schema based on any API extensions
             // and custom fields that are configured.
             vendureConfigPath: pathToFileURL('./src/vendure-config.ts'),
-            // Points to the location of your Vendure server.
-            api: { host: 'http://localhost', port: 3000 },
+            // Points to the location of your Vendure server. 
+            api:{ host: 'auto', port: 'auto' },
             // When you start the Vite server, your Admin API schema will
             // be introspected and the types will be generated in this location.
             // These types can be used in your dashboard extensions to provide
