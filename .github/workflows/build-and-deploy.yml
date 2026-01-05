@@ -11,12 +11,6 @@ jobs:
       # Checkout source code
       - name: Checkout source code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Fetches full history for better caching/context
-
-      # Set up Docker Buildx
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
 
       # Extract metadata
       - name: Extract metadata
@@ -43,7 +37,8 @@ jobs:
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/dokploy-vendure-demo:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/dokploy-vendure-demo:${{ steps.meta.outputs.SHORT_SHA }}
-          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       # Trigger Dokploy deployment webhook
       - name: Trigger Dokploy deployment for Vendure API
