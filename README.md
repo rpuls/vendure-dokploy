@@ -1,3 +1,5 @@
+[![Pinelab Logo](https://pinelab.studio/pinepas_small.png)](https://pinelab.studio)
+
 # Vendure Dokploy Starter
 
 This repository is a vanilla setup to deploy Vendure with Dokploy on a VPS:
