@@ -7,9 +7,7 @@ This repository is a vanilla setup to deploy Vendure with Dokploy on a VPS:
 * Redis
 * BullMQ
 
-# Setup
-
-These are the steps needed to get everything up and running on your VPS of choice.
+Follow the steps below to get everything up and running on your VPS of choice.
 
 ## Dokploy
 
