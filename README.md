@@ -2,19 +2,13 @@
 
 # Vendure Dokploy Starter
 
-This repository is a vanilla setup to deploy Vendure with Dokploy on a VPS:
-* Vendure API
-* Vendure Worker
-* PostgreSQL
-* Redis
-* BullMQ
+This repository is a vanilla Vendure setup to deploy Vendure with Dokploy on a VPS: a Vendure API, worker instance, PostgreSQL and Redis with BullMQ as Job Queue.
 
 Follow the steps below to get everything up and running on your VPS of choice.
 
 ## VPS
 
-* Create a VPS with at least 4 GB of RAM and Ubuntu 24.04 LTS installed.
-* See [Dokploy's documentation](https://docs.dokploy.com/docs/core/installation) for the supported Linux distros.
+* Create a VPS with at least 4 GB of RAM and a [supported Linux distro installed](https://docs.dokploy.com/docs/core/installation).
 
 ## Dokploy
 
@@ -129,6 +123,11 @@ These are just sample values, and your values depend on the VPS and the resource
 * Create an S3 compatible destination in Dokploy. For example [Google Cloud Storage](https://docs.dokploy.com/docs/core/cloud-storage).
 * Configurate automated backups for the PostgreSQL database: https://docs.dokploy.com/docs/core/databases/backups
 * Configure volume backups for Vendure's assets: https://docs.dokploy.com/docs/core/volumes/backups. You only need to backup `vendure_assets` once for the Vendure API , not the worker.
+
+## Load Testing
+
+* See [Load Testing](load-test/README.md) for information and scripts to load test your setup.
+* Indicative load: We have tested our 4 GB 2 vCPU instance to be capable of handling about 240 orders per minute before the p95 response time exceeds 500ms.
 
 ## Alerts and Notifications
 
