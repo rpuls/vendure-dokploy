@@ -9,7 +9,7 @@ Follow the steps below to get everything up and running on your VPS of choice.
 ![This is what the result should look like](https://raw.githubusercontent.com/Pinelab-studio/vendure-dokploy-starter/refs/heads/main/%20docs/dokploy-screenshot.png)
 *The services we will be creating in Dokploy.*
 
-## VPS
+## VPS 
 
 * Create a VPS with at least 4 GB of RAM and a [supported Linux distro installed](https://docs.dokploy.com/docs/core/installation).
 
